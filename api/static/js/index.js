@@ -20,9 +20,9 @@ document.addEventListener("DOMContentLoaded", function() {
             this.classList.replace("unflipped", "flipped");  // Replace class from "unflipped" to "flipped"
         });
     });
-    document.querySelectorAll('.journey-point').forEach(point => {
-        point.addEventListener('click', () => {
+    //document.querySelectorAll('.journey-point').forEach(point => {
+        //point.addEventListener('click', () => {
             // alert(`You clicked: ${point.dataset.milestone}`);
-        });
-    });
+        //});
+    //});
 });
