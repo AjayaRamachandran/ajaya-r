@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
     document.querySelectorAll('.journey-point').forEach(point => {
         point.addEventListener('click', () => {
-            alert(`You clicked: ${point.dataset.milestone}`);
+            // alert(`You clicked: ${point.dataset.milestone}`);
         });
     });
 });
