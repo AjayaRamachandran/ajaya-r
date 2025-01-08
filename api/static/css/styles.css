@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-color: rgb(244, 244, 244);
 }
 
 :root {
@@ -19,6 +20,7 @@ body {
 }
 
 .title-block {
+    background-color: rgb(255, 255, 255);
     display: flex;
     border: 1px solid rgb(218, 218, 218);
     border-radius: 25px;
@@ -92,8 +94,9 @@ body {
     height: 200px;
     opacity: 0;
     margin: 0px 0px 0px 100px;
+    filter: blur(50px);
     transform: translateY(25px);
-    transition: ease-out opacity 0.5s, ease-out transform 0.5s;
+    transition: ease-out opacity 0.5s, ease-out transform 0.5s, cubic-bezier(0,.67,.49,1) filter 0.5s;
 }
 
 
@@ -132,31 +135,42 @@ svg {
   }
 
 .card {
+    position: absolute;
     border-radius: 20px;
     display: flex;
     border: 1px solid transparent;
     padding: 15px 20px;
     cursor: pointer;
-    transition: border-color 0.25s, filter 0.25s, transform 0.25s;
+    transition: border-color 0.25s, filter 0.25s, transform 1s;
     margin: 8px 10px 0px 10px;
     width: 240px;
     height: 360px;
     justify-content: space-between;
-}
-.card:hover {
-    transform: translateY(-8px);
-}
-.unflipped {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
     font-size: 30px;
     font-weight: 700;
 }
-.flipped {
+.card.content, .card.back {
+    position: absolute;
+    backface-visibility: hidden;
+    width: 240px;
+    height: 360px;
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 500;
+}
+
+.card .back {
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
 }
 
 .left-card {
     background-color: #c5d1e4;
+    margin-right: 640px;
 }
 .left-card:hover {
     border-color: #577dbd;
@@ -175,6 +189,7 @@ svg {
 
 .right-card {
     background-color: #cccaae;
+    margin-left: 640px;
 }
 .right-card:hover {
     border-color: #a6a369;
@@ -195,7 +210,8 @@ svg {
 
 .journey-section {
     position: relative;
-    background-color: #f3f3f3;
+    background-color: #ebebeb;
+    border: 1px solid #c5c5c5;
     border-radius: 25px;
     width: 1000px;
     height: 1380px; /* Height of the section */
@@ -258,6 +274,7 @@ a {
     transition: background-color 0.25s, box-shadow 0.25s;
     justify-content: space-between;
     width: 900px;
+    height: 65px;
     margin-bottom: 25px;
 }
 .tile-left {
@@ -287,6 +304,7 @@ a {
     background-color: #f3f3f3;
     border: 1px solid #bbb;
     padding: 12px 12px;
+    width: 50px;
 }
 .tile-site {
     margin: 8px;
@@ -294,6 +312,7 @@ a {
     background-color: #a8f9cd;
     border: 1px solid #6e9c82;
     padding: 12px 15px;
+    width: 50px;
 }
 
 .tile:hover {
